@@ -1,0 +1,76 @@
+<!-- add -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adicionar carro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form id="addForm">
+                <label for="chassi">Chassi</label>
+				<input size="50" class="form-control mt-2"  id="chassi" name="chassi" type="text" placeholder="digite o chassi do carro" value="">
+               <label for="modelo">Modelo</label>
+                <input size="80" class="form-control mt-2" id="modelo" name="modelo" type="text" placeholder=" digite o modelo do carro" value="">
+                <label for="marca">Marca</label>
+                <input size="35" class="form-control mt-2" id="marca" name="marca" type="text" placeholder=" digite a marca do carro" value="">
+                <label for="ano">Ano</label>
+                <input size="40" class="form-control mt-2" id="modelo" name="ano" type="text" placeholder=" digite o ano do carro" value="">
+               <label for="placa">Placa</label>
+                <input size="40" class="form-control mt-2" id="placa" name="placa" type="text" placeholder=" digite a placa do carro" value="">
+              
+               <div class="form-group">
+                <label for="caracteristicas">Caracteristicas</label>
+                <select class="form-control" id="caracteristicas" multiple>
+                  <option name="caracteristicas" value="turbo">Turbo</option>
+                  <option name="caracteristicas" value="economico">Economico</option>
+                  <option name="caracteristicas" value="cidade">Cidade</option>
+                  <option name="caracteristicas" value="estrada">Estrada</option>
+                  <option name="caracteristicas" value="classico">Classico</option>
+                  <option name="caracteristicas" value="esporte">Esporte</option>
+                </select>
+              </div>
+                <input size="40" class="form-control mt-2" id="caracteristicas" name="caracteristicas" type="text" placeholder=" digite uma caracteristicas do carro" value="">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Fechar</button>
+                    <button type="submit" class="btn btn-primary insert"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</a>
+                </div>
+            </form>           
+        </div>       
+      </div>
+    </div>
+  </div>
+
+  <!-- delete -->
+        ...
+
+
+  <!-- editar -->
+  <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Editar carro</h4>
+            </div>
+            <div class="modal-body">
+			<div class="container-fluid">
+			<form id="editForm" class="">
+                    <input size="80" class="form-control" name="id" id="id_" value=""  type="hidden" placeholder="modelo">
+                    <input size="50" class="form-control"  id="" name="chassi" type="text" placeholder="chassi" value="">
+                    <input size="80" class="form-control" id="" name="modelo" type="text" placeholder="modelo" value="">
+                    <input size="35" class="form-control" id="" name="marca" type="text" placeholder="marca" value="">
+                    <input size="40" class="form-control" id="" name="ano" type="text" placeholder="ano" value="">
+                    <input size="40" class="form-control" id="" name="placa" type="text" placeholder="placa" value="">
+                    <input size="40" class="form-control" id="" name="caracteristicas" type="text" placeholder="caracteristicas" value="">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> Update</a>
+			</form>
+            </div>
+ 
+        </div>
+    </div>
+  </div>
