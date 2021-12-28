@@ -18,7 +18,6 @@
 		$output['message'] = $e->getMessage();
 	}
  
-	//close connection
 	$database->close();
  
 	echo json_encode($output);

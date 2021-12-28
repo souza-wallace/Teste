@@ -1,5 +1,32 @@
 $(document).ready(function(){
 	fetch();
+	function fetch(){
+		$.ajax({
+			method: 'POST',
+			url: 'fetch.php',
+			dataType: 'json',
+			success: function(response){
+				response.forEach(carro => {
+					$('#tbody').append(`
+					<tr id="${carro.ID}">
+						<td>${carro.ID}</td>
+						<td>${carro.chassi}</td>
+						<td>${carro.marca}</td>
+						<td>${carro.modelo}</td>
+						<td>${carro.placa}</td>
+						<td>${carro.ano}</td>
+						<td>${carro.caracteristicas}</td>
+						<td>
+							<button type="button" class="btn btn-warning btn-sm mb-2 edit" data-id="${carro.ID}" data-toggle="modal" data-target="#editar"> <i class="fas fa-edit"></i> Editar</button>
+							<button type="button" class="btn btn-danger  btn-sm delete"  data-id="${carro.ID}" data-toggle="modal" data-target="#deletar">  <i class="fas fa-trash"></i> Deletar</button>
+						</td>
+					</tr>
+					`);
+				});
+
+			}
+		});
+	}
 	
 	$('#addnew').click(function(){
 		$('#add').modal('show');
@@ -94,15 +121,6 @@ $(document).ready(function(){
  
 });
  
-function fetch(){
-	$.ajax({
-		method: 'POST',
-		url: 'fetch.php',
-		success: function(response){
-			$('#tbody').html(response);
-		}
-	});
-}
  
 function getDetails(id){
 	$.ajax({
