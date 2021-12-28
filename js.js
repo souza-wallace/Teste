@@ -1,13 +1,12 @@
 $(document).ready(function(){
 	fetch();
-	//add
+	
 	$('#addnew').click(function(){
 		$('#add').modal('show');
 	});
 	$('#addForm').submit(function(e){
 		e.preventDefault();
 		var addform = $(this).serialize();
-		console.log(addform);
 		$.ajax({
 			method: 'POST',
 			url: 'insert.php',
@@ -29,7 +28,7 @@ $(document).ready(function(){
 	});
 	//
  
-	//edit
+	
 	$(document).on('click', '.edit', function(){
 		var id = $(this).data('id');
 		getDetails(id);        
@@ -40,7 +39,6 @@ $(document).ready(function(){
 	$('#editForm').submit(function(e){
 		e.preventDefault();
 		var editform = $(this).serialize();
-        console.log(editform)
         var id = $('id_').val()
 		$.ajax({
 			method: 'POST',
@@ -64,7 +62,7 @@ $(document).ready(function(){
 	});
 	//
  
-	//delete
+	
 	$(document).on('click', '.delete', function(){
 		var id = $(this).data('id');        
 		getDetails(id);
@@ -89,7 +87,7 @@ $(document).ready(function(){
 		});
 	});
  
-	//hide message
+	
 	$(document).on('click', '.close', function(){
 		$('#alert').hide();
 	});
@@ -122,3 +120,42 @@ function getDetails(id){
 		}
 	});
 }
+
+	$('#filtro').submit(function(e){
+
+		e.preventDefault();
+		var array = [];
+		var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+		for (var i = 0; i < checkboxes.length; i++){
+			array.push(checkboxes[i].value)
+			var filtros = array.sort();	
+		}
+		$.ajax({
+			type: "POST",
+			url: "filtro.php",
+			data: {filtros, action:'filtro'},
+			dataType: "json",
+			success: function (response) {
+				$('#tbody').html('')
+				response.forEach(carro => {
+					$('#tbody').append(`
+					<tr id="${carro.ID}">
+						<td>${carro.ID}</td>
+						<td>${carro.chassi}</td>
+						<td>${carro.marca}</td>
+						<td>${carro.modelo}</td>
+						<td>${carro.placa}</td>
+						<td>${carro.ano}</td>
+						<td>${carro.caracteristicas}</td>
+						<td>
+							<button type="button" class="btn btn-warning btn-sm mb-2 edit" data-id="${carro.ID}" data-toggle="modal" data-target="#editar"> <i class="fas fa-edit"></i> Editar</button>
+							<button type="button" class="btn btn-danger  btn-sm delete"  data-id="${carro.ID}" data-toggle="modal" data-target="#deletar">  <i class="fas fa-trash"></i> Deletar</button>
+						</td>
+					</tr>
+					`);
+				});
+				
+			}
+		});
+	});
+

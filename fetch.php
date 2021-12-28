@@ -15,7 +15,7 @@
 	    		<td><?php echo $row['modelo']; ?></td>
                 <td><?php echo $row['placa']; ?></td>
 	    		<td><?php echo $row['ano']; ?></td>
-                <td><?php echo $row['caracteristicas']; ?></td>
+                <td><?php echo $row['caracteristicas'];?></td>
 
 	    		<td>
 	    			<button type="button" class="btn btn-warning btn-sm mb-2 edit" data-id="<?php echo $row['ID']; ?>" data-toggle="modal" data-target="#editar"> <i class="fas fa-edit"></i> Editar</button>
