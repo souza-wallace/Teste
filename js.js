@@ -23,14 +23,10 @@ $(document).ready(function(){
 					</tr>
 					`);
 				});
-
 			}
 		});
 	}
 	
-	$('#addnew').click(function(){
-		$('#add').modal('show');
-	});
 	$('#addForm').submit(function(e){
 		e.preventDefault();
 		var addform = $(this).serialize();
@@ -40,15 +36,19 @@ $(document).ready(function(){
 			data: addform,
 			dataType: 'json',
 			success: function(response){
-				$('#add').modal('hide');
+				
 				if(response.error){
 					$('#alert').show();
 					$('#alert_message').html(response.message);
 				}
 				else{
+					$('#addModal').modal('hide');
 					$('#alert').show();
 					$('#alert_message').html(response.message);
 					fetch();
+					setTimeout(function () {
+						window.location.reload(1);
+					}, 1500);					
 				}
 			}
 		});
@@ -80,7 +80,7 @@ $(document).ready(function(){
 				else{
 					$('#alert').show();
 					$('#alert_message').html(response.message);
-					fetch();
+					fetch();				
 				}
  
 				$('#edit').modal('hide');
@@ -101,12 +101,15 @@ $(document).ready(function(){
 			success: function(response){
 				if(response.error){
 					$('#alert').show();
-					$('#alert_message').html(response.message);
+					$('#alert_message').html(response.message);					
 				}
 				else{
 					$('#alert').show();
 					$('#alert_message').html(response.message);
 					fetch();
+					setTimeout(function () {
+						window.location.reload(1);
+					}, 1000);
 				}
  
 				$('#delete').modal('hide');
@@ -175,5 +178,9 @@ function getDetails(id){
 				
 			}
 		});
+	});
+	$('.clean').click(function (e) { 
+		e.preventDefault();
+		window.location.reload();
 	});
 

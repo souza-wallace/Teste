@@ -3,7 +3,7 @@
                     <div class="col-12">
                         <b>Filtrar por:</b>
                     </div>
-                        <div class="form-check col-2 ">
+                        <div class="form-check col-2">
                         <input class="form-check-input"  name="caracteristicas" type="checkbox" value="cidade" id="cidade">
                         <label class="form-check-label" for="cidade">
                             Cidade
@@ -40,6 +40,7 @@
                         </label>
                         </div>
                         <div class="col-md-12 text-left mt-2">
-                            <button type="submit" class="btn btn-primary filtrar" ><i class="far fa-search">  Pesquisar</i></button>
+                            <button type="button" class="btn btn-sm btn-primary clean" > Limpar filtros</button>
+                            <button type="submit" class="btn btn-sm btn-primary filtrar" ><i class="far fa-search">  Pesquisar</i></button>
                         </div>
  </form>

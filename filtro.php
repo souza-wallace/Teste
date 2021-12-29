@@ -15,8 +15,8 @@
                 $filtro5 = $filtros[4];
                 $filtro6 = $filtros[5];
                 
-                $stmt = $db->prepare("SELECT * FROM Carros WHERE caracteristicas = :caracteristicas ");
-                $stmt->execute(['caracteristicas'=>$filtro1]); 
+                $stmt = $db->prepare("SELECT * FROM Carros WHERE caracteristicas IN (?,?,?,?,?,?) ");
+                $stmt->execute([$filtro1,$filtro2,$filtro3,$filtro4,$filtro5,$filtro6]); 
                 //var_dump($stmt);exit;
                 $data = $stmt->fetchAll();
                 //var_dump($data);exit;
