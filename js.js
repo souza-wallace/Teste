@@ -30,6 +30,7 @@ $(document).ready(function(){
 	$('#addForm').submit(function(e){
 		e.preventDefault();
 		var addform = $(this).serialize();
+		console.log(addform)
 		$.ajax({
 			method: 'POST',
 			url: 'insert.php',
@@ -48,7 +49,7 @@ $(document).ready(function(){
 					fetch();
 					setTimeout(function () {
 						window.location.reload(1);
-					}, 1500);					
+					},700);					
 				}
 			}
 		});
@@ -109,7 +110,7 @@ $(document).ready(function(){
 					fetch();
 					setTimeout(function () {
 						window.location.reload(1);
-					}, 1000);
+					}, 700);
 				}
  
 				$('#delete').modal('hide');
